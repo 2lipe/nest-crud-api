@@ -1,6 +1,6 @@
 import { InputType } from '@nestjs/graphql';
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
-import { Messages } from 'src/utils/messages';
+import { Messages } from 'src/utils/helpers/messages-helper';
 
 @InputType()
 export class CreateUserInput {
@@ -9,6 +9,10 @@ export class CreateUserInput {
   name: string;
 
   @IsEmail()
-  @IsNotEmpty({ message: Messages.validation.notEmpty })
+  @IsNotEmpty({ message: Messages.validation.invalidEmail })
   email: string;
+
+  @IsString()
+  @IsNotEmpty({ message: Messages.validation.passwordRequired })
+  password: string;
 }

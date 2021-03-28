@@ -1,7 +1,7 @@
 import { InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Messages } from '../../src/utils/messages';
+import { Messages } from '../utils/helpers/messages-helper';
 import { TestUtil } from '../utils/test/test-utils';
 import { User } from './user.entity';
 import { UserService } from './user.service';
